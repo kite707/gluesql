@@ -1,5 +1,7 @@
 #[cfg(feature = "sled-storage")]
 mod hello_world {
+    use rand::Rng;
+
     use {
         gluesql::{
             prelude::{Glue, Payload, Value},
@@ -66,7 +68,13 @@ mod hello_world {
             _ => panic!("Unexpected result: {:?}", result),
         };
 
-        let first_row = &rows[0];
+        /*
+           Get random number to say hi
+        */
+
+        let random_number = rand::thread_rng().gen_range(1, 6);
+        
+        let first_row = &rows[random_number];
         let first_value = first_row.iter().next().unwrap();
 
         /*
