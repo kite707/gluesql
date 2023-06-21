@@ -73,14 +73,14 @@ mod hello_world {
         */
 
         let random_number = rand::thread_rng().gen_range(1, 6);
-        
-        let first_row = &rows[random_number];
-        let first_value = first_row.iter().next().unwrap();
+
+        let random_row = &rows[random_number];
+        let random_value = random_row.iter().next().unwrap();
 
         /*
             Row values are wrapped into a value enum, on the basis of the result type
         */
-        let to_greet = match first_value {
+        let to_greet = match random_value {
             Value::Str(to_greet) => to_greet,
             value => panic!("Unexpected type: {:?}", value),
         };
