@@ -33,6 +33,19 @@ mod hello_world {
             INSERT INTO greet VALUES ('World');
         ";
 
+        /*
+            Add peoples
+        */
+        glue.execute(queries).await.expect("Execution failed");
+
+        let queries = "
+            INSERT INTO greet VALUES ('가영1');
+            INSERT INTO greet VALUES ('나영2');
+            INSERT INTO greet VALUES ('다영3');
+            INSERT INTO greet VALUES ('라영4');
+            INSERT INTO greet VALUES ('마영5');
+        ";
+
         glue.execute(queries).await.expect("Execution failed");
 
         /*
